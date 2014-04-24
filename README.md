@@ -1,6 +1,6 @@
 ## Learn to type by typing jQuery code [WIP]
 
-An excuse to get familiar with RequireJs and Jasmin, esprima, and escodegen
+An excuse to get familiar with RequireJs, Jasmin, esprima, and escodegen
 
 * RequireJs - [AMD loader](http://requirejs.org/)
 * Jasmine - [BDD Unit testing library](http://jasmine.github.io/)
@@ -14,6 +14,5 @@ An excuse to get familiar with RequireJs and Jasmin, esprima, and escodegen
 ### Run Jasmine tests
 * $ grunt test
 
-index.html is the static file
+** index.html is the static file that loads everything
 
-- Sony   April 24th 2014
