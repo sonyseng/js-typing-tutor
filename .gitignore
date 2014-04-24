@@ -1,0 +1,16 @@
+/target
+/classes
+/checkouts
+/node_modules
+/app
+pom.xml
+_SpecRunner.html
+pom.xml.asc
+*.jar
+*.class
+*.classpath
+*.project
+/.lein-*
+/.nrepl-port
+/.grunt
+

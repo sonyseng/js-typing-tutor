@@ -1,0 +1,31 @@
+{
+  "name": "ui_playground",
+  "version": "1.0.0",
+  "description": "UI Playground using a clojure backend ======================================",
+  "main": "Gruntfile.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sonyseng/ui_playground.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonyseng/ui_playground/issues"
+  },
+  "homepage": "https://github.com/sonyseng/ui_playground",
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-bowercopy": "~1.0.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-jasmine": "~0.5.3",
+    "grunt-template-jasmine-requirejs": "~0.1.10"
+  }
+}

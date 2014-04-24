@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+h1 {
+	text-align: center;	
+	height: 10%;
+	margin: 0;
+}
+
+#source, #typed-source {
+	font-size: 1.2em;	
+}
+
+#source {
+	height: 45%;
+	margin: 0;
+}
+
+#typed-source {
+	height: 45%;
+	margin: 0;
+}
