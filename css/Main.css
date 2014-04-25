@@ -18,11 +18,16 @@ h1 {
 }
 
 #source {
-	height: 45%;
+	height: 40%;
 	margin: 0;
 }
 
+#controls {
+	height: 10%;	
+	padding: 10px 5px;
+}
+
 #typed-source {
-	height: 45%;
+	height: 40%;
 	margin: 0;
 }

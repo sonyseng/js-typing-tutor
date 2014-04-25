@@ -12,19 +12,29 @@ require(['jquery', 'esprima', 'escodegen', 'Game'], function (jquery, esprima, e
 	// escodegen has issues with AMD loading
 	escodegen = window.escodegen;
 	
-	var sourceEl = $('#source'),
-		typedSourceEl = $('#typed-source'),
-		fnList = game.getObjectFunctions();
+	var jQueryFuncMap = game.makeFnMap($);
+	var funcName = Object.keys(jQueryFuncMap);
+	var funcIndex = -1;
+	var sourceIndex = -1;
+	var sourceEl = $('#source');
+	var startButton = $('#startButton');
+	var typedSource = $('#typed-source');
 	
-	var source = fnList.each;
-	sourceEl.val(source);
-
-	var ast = esprima.parse(source);
-	sourceEl.val(ast);
-
-	var	beautifiedSource = escodegen.generate(ast);
-	sourceEl.val(beautifiedSource);
+	function getNextSourceLine() {
+		sourceIndex++;
+		
+		if (sourceIndex > jQueryFuncMap[funcName[funcIndex]].length) {
+			funcIndex++;
+			sourceIndex = 0;
+		}
+		
+		return jQueryFuncMap[funcName[funcIndex]][sourceIndex];
+	}
 	
-	sourceEl.val(game.makeSortedCollection(escodegen.generate(esprima.parse(fnList.each)))[10].trim());
-	console.log("Funcs ", fnList);
+	// Initialize
+	funcIndex = 0;
+	startButton.click(function () {
+		sourceEl.val(getNextSourceLine().trim());
+	});
+
 });

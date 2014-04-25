@@ -1,21 +1,35 @@
 define(['jquery', 'esprima', 'escodegen'], function ($, esprima, escodegen) {
-	function makeCollection(str, sortFn) {
+	// escodegen has issues with AMD loading
+	escodegen = window.escodegen;
+
+	function makeFnSourceCollection(str, sortFn) {
 		return sortFn ? str.split(/\r?\n|\r/).sort(sortFn) : str.split(/\r?\n|\r/);
 	}
 
-	function makeSortedCollection(str) {
-		return makeCollection(str, function (str1, str2) { return str1.length - str2.length; });
+	function makeSortedFnSourceCollection(str) {
+		return makeFnSourceCollection(str, function (str1, str2) { return str1.length - str2.length; });
 	}
 	
-	function getObjectFunctions() {
-		var fnList = {};
-		$.each($, function (k, v) { $.isFunction($[k]) && (fnList[k] = "var "+ k +" = "+ v);});
-		return fnList;
+	function isNativeFn (fnBody) {
+		return /^\s*function[^{]+\s*\{\s*\[native code\]\s*\}\s*$/.test(fnBody);
 	}
 	
+	function makeFnMap(obj) {
+		var fnMap = {}, augmentedFnBody;
+		
+		$.each(obj, function (fnName, fnBody) { 
+			if ($.isFunction(obj[fnName]) && !isNativeFn(fnBody)) {
+				augmentedFnBody = 'var '+ fnName +' = '+ fnBody;
+				fnMap[fnName] = makeSortedFnSourceCollection(escodegen.generate(esprima.parse(augmentedFnBody)));
+			}
+		});
+		
+		return fnMap;
+	}
+	
+	//////////////// Initialization //////////////// 
+
 	return {
-		makeCollection: makeCollection,
-		makeSortedCollection: makeSortedCollection,
-		getObjectFunctions: getObjectFunctions
+		makeFnMap: makeFnMap
 	};
 });
