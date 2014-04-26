@@ -13,13 +13,13 @@
 	
 	<h1>jQuery teaches typing</h1>
 
-	<textarea id="source" readonly>function ()</textarea>	
+	<div id="source"></div>	
+	<textarea id="typed-source" onmousedown='return false;' onselectstart='return false;' placeholder="Type here"></textarea>
 
 	<div id="controls">
 		<button id="startButton">Start</button>	
+		<button id="resetButton">Reset</button>	
 	</div>
-
-	<textarea id="typed-source" placeholder="Type here"></textarea>
 	
 	
 </body>

@@ -11,6 +11,7 @@ h1 {
 	text-align: center;	
 	height: 10%;
 	margin: 0;
+	color: #9CD5A0;
 }
 
 #source, #typed-source {
@@ -18,8 +19,11 @@ h1 {
 }
 
 #source {
-	height: 40%;
+	height: 10%;
 	margin: 0;
+	padding: 10px;
+	background-color: #152B2B;
+	color: #C2B3B3;
 }
 
 #controls {
@@ -28,6 +32,19 @@ h1 {
 }
 
 #typed-source {
-	height: 40%;
+	height: 10%;
 	margin: 0;
+	background-color: #0B0B0B;
+	border: none;
+	color: #C2B3B3;
 }
+
+::-webkit-input-placeholder { color: #242424; } 
+:-moz-placeholder { color: #242424; }
+::-moz-placeholder { color: #242424; } 
+:-ms-input-placeholder { color: #242424; }
+
+
+
+
+
